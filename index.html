@@ -315,20 +315,18 @@
         successMsg.style.display = 'none';
         errorMsg.style.display   = 'none';
 
-        const payload = {
+        const payload = new URLSearchParams({
             timestamp: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' }),
             fullName: name,
             phone: phone,
             email: email
-        };
+        });
 
         try {
-            // mode: 'no-cors' — Apps Script אינו שולח CORS headers לכן זה הפתרון הסטנדרטי
             await fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(payload)
+                body: payload
             });
             successMsg.style.display = 'block';
             document.getElementById('regForm').reset();
