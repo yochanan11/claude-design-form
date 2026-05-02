@@ -315,7 +315,7 @@
         successMsg.style.display = 'none';
         errorMsg.style.display   = 'none';
 
-        const payload = new URLSearchParams({
+        const params = new URLSearchParams({
             timestamp: new Date().toLocaleString('he-IL', { timeZone: 'Asia/Jerusalem' }),
             fullName: name,
             phone: phone,
@@ -323,10 +323,9 @@
         });
 
         try {
-            await fetch(APPS_SCRIPT_URL, {
-                method: 'POST',
-                mode: 'no-cors',
-                body: payload
+            await fetch(APPS_SCRIPT_URL + '?' + params.toString(), {
+                method: 'GET',
+                mode: 'no-cors'
             });
             successMsg.style.display = 'block';
             document.getElementById('regForm').reset();

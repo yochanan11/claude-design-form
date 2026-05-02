@@ -4,7 +4,7 @@
 const SPREADSHEET_ID = '1TY2OiNmMs_B6iC4Z5PsOjX1PhzUMqyx-EWVMb3d0tqU';
 const SHEET_NAME     = 'Sheet1'; // שנה אם יש לך שם אחר לגיליון
 
-function doPost(e) {
+function doGet(e) {
   try {
     const ss    = SpreadsheetApp.openById(SPREADSHEET_ID);
     const sheet = ss.getSheetByName(SHEET_NAME) || ss.getActiveSheet();
