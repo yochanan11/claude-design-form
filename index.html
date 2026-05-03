@@ -277,7 +277,7 @@
 
             <button type="submit" class="submit-btn" id="submitBtn">הרשמה ללייב</button>
 
-            <div class="msg success" id="successMsg">✓ נרשמת בהצלחה! פרטים ישלחו אליך במייל.</div>
+            <div class="msg success" id="successMsg">✓ נרשמת בהצלחה! מעביר אותך לאתר...</div>
             <div class="msg error"   id="errorMsg">שגיאה בשליחה. אנא נסה שנית.</div>
         </form>
 
@@ -329,6 +329,9 @@
             });
             successMsg.style.display = 'block';
             document.getElementById('regForm').reset();
+            setTimeout(() => {
+                window.location.href = 'https://www.shwadron-ai.com';
+            }, 3000);
         } catch (err) {
             errorMsg.style.display = 'block';
             console.error(err);
